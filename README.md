@@ -25,31 +25,31 @@ This is a Django-based application that allows users to register shops with thei
 
 Ensure that Python 3.x and `pip` are installed on your system.
 
-###Create and activate a virtual environment:
+### Create and activate a virtual environment:
   ```bash
   python3 -m venv env
   source `env\Scripts\activate`
   ```
-###Install the dependencies:
+### Install the dependencies:
 ```bash
   pip install -r requirements.txt
 ```
 
-###Apply database migrations:
+### Apply database migrations:
 ```bash
 python manage.py migrate
 ```
 
-###Run the Django development server:
+### Run the Django development server:
 ```bash
 python manage.py runserver
 ```
 
-##Usage
-###Register a Shop
+## Usage
+### Register a Shop
 To register a shop with latitude and longitude, you can send a POST request to the /api/shops/register/ endpoint.
 
-####Example request using cURL:
+#### Example request using cURL:
 ```bash
 curl -X POST http://127.0.0.1:8000/api/shops/register/ \
 -H "Content-Type: application/json" \
@@ -59,10 +59,10 @@ curl -X POST http://127.0.0.1:8000/api/shops/register/ \
   "longitude": "-74.005974"
 }'
 ```
-###Search Shops
+### Search Shops
 To search for shops near a given location (latitude and longitude), send a POST request to the /api/shops/search/ endpoint. The response will return the list of shops sorted by distance from the user's location.
 
-####Example request using cURL:
+#### Example request using cURL:
 ```bash
 curl -X POST http://127.0.0.1:8000/api/shops/search/ \
 -H "Content-Type: application/json" \
@@ -72,65 +72,67 @@ curl -X POST http://127.0.0.1:8000/api/shops/search/ \
 }'
 ```
 
-##API Endpoints
-###Register Shop
+## API Endpoints
+### Register Shop
 URL: /api/shops/register/
+<br>
 Method: POST
+<br>
 Description: Registers a new shop with name, latitude, and longitude.
-Request Body:
+<br>
+Request Body:<br>
 
-Field	Type	Description
-name	String	Name of the shop
-latitude	Float	Latitude of the shop location
-longitude	Float	Longitude of the shop location
-Response Example:
+Field	Type	Description <br>
+name:	String	Name of the shop <br>
+latitude:	Float	Latitude of the shop location <br>
+longitude:	Float	Longitude of the shop location <br>
+Response Example: <br>
 
-json
-Copy code
-{
-    "id": 1,
-    "name": "Shop 1",
-    "latitude": "40.712776",
-    "longitude": "-74.005974"
-}
+    json
+    {
+      "id": 1,
+      "name": "Shop 1",
+      "latitude": "40.712776",
+      "longitude": "-74.005974"
+    }
+<br>
 
-###Search Shops
-URL: /api/shops/search/
-Method: POST
-Description: Returns the list of shops sorted by their distance from the user's current location.
-Request Body:
+### Search Shops
+URL: /api/shops/search/ <br>
+Method: POST <br>
+Description: Returns the list of shops sorted by their distance from the user's current location. <br>
+Request Body: <br>
 
-Field	Type	Description
-latitude	Float	User's current latitude
-longitude	Float	User's current longitude
-Response Example:
+Field	Type	Description <br>
+latitude:	Float	User's current latitude <br>
+longitude:	Float	User's current longitude <br>
+Response Example: <br>
 
-json
-Copy code
-[
-  {
-    "id": 1,
-    "name": "Shop 1",
-    "latitude": "40.712776",
-    "longitude": "-74.005974",
-    "distance": 2.3  # Distance in kilometers
-  },
-  {
-    "id": 2,
-    "name": "Shop 2",
-    "latitude": "40.758896",
-    "longitude": "-73.985130",
-    "distance": 4.6
-  }
-]
+    json
+    [
+      {
+        "id": 1,
+        "name": "Shop 1",
+        "latitude": "40.712776",
+        "longitude": "-74.005974",
+        "distance": 2.3  # Distance in kilometers
+      },
+      {
+        "id": 2,
+        "name": "Shop 2",
+        "latitude": "40.758896",
+        "longitude": "-73.985130",
+        "distance": 4.6  
+      }
+    ]
 
-##Technologies Used
-Django: Backend framework.
-Django REST Framework (DRF): API development.
-MySQL: Database
-Python: Core programming language.
+## Technologies Used
+Django: Backend framework. <br>
+Django REST Framework (DRF): API development. <br>
+MySQL: Database <br>
+Python: Core programming language. <br>
 
-##Project Structure
+## Project Structure
 
 ├── Shops/                     # Django app for shop-related functionalities
 │   ├── migrations/            # Database migrations
