@@ -30,11 +30,6 @@ Ensure that Python 3.x and `pip` are installed on your system.
   python3 -m venv env
   source `env\Scripts\activate`
   ```
-### Install the dependencies:
-```bash
-  pip install -r requirements.txt
-```
-
 ### Apply database migrations:
 ```bash
 python manage.py migrate
